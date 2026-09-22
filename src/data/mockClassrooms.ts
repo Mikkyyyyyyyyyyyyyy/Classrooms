@@ -57,6 +57,15 @@ export const INITIAL_CLASSROOMS: Classroom[] = [
       { id: 'b3', type: 'organic', name: 'ถังขยะอินทรีย์/เศษอาหาร', fillLevel: 25, capacityLiters: 40, weightKg: 1.2, lastEmptied: 'วันนี้ 07:45', batteryLevel: 88, needsEmptying: false },
       { id: 'b4', type: 'ewaste', name: 'ถังขยะ E-Waste (แบตเตอรี่/สายไฟ/บอร์ดชำรุด)', fillLevel: 30, capacityLiters: 30, weightKg: 2.1, lastEmptied: '3 วันที่แล้ว', batteryLevel: 96, needsEmptying: false },
     ],
+    energyHistory7Days: [
+      { date: '15 ก.ย.', dayName: 'จันทร์', acKwh: 18.5, lightsKwh: 3.8, otherKwh: 0.9, totalKwh: 23.2, targetKwh: 20.0, costBaht: 104, carbonKg: 11.6, isToday: false },
+      { date: '16 ก.ย.', dayName: 'อังคาร', acKwh: 20.2, lightsKwh: 4.1, otherKwh: 1.0, totalKwh: 25.3, targetKwh: 20.0, costBaht: 114, carbonKg: 12.6, isToday: false },
+      { date: '17 ก.ย.', dayName: 'พุธ', acKwh: 16.4, lightsKwh: 3.4, otherKwh: 0.8, totalKwh: 20.6, targetKwh: 20.0, costBaht: 93, carbonKg: 10.3, isToday: false },
+      { date: '18 ก.ย.', dayName: 'พฤหัส', acKwh: 21.0, lightsKwh: 4.2, otherKwh: 1.1, totalKwh: 26.3, targetKwh: 20.0, costBaht: 118, carbonKg: 13.1, isToday: false },
+      { date: '19 ก.ย.', dayName: 'ศุกร์', acKwh: 17.5, lightsKwh: 3.6, otherKwh: 0.8, totalKwh: 21.9, targetKwh: 20.0, costBaht: 99, carbonKg: 10.9, isToday: false },
+      { date: '20 ก.ย.', dayName: 'เสาร์', acKwh: 4.5, lightsKwh: 1.2, otherKwh: 0.4, totalKwh: 6.1, targetKwh: 20.0, costBaht: 27, carbonKg: 3.0, isToday: false },
+      { date: '21 ก.ย.', dayName: 'อาทิตย์ (วันนี้)', acKwh: 15.2, lightsKwh: 3.1, otherKwh: 0.7, totalKwh: 19.0, targetKwh: 20.0, costBaht: 86, carbonKg: 9.5, isToday: true },
+    ],
   },
   {
     id: 'room-402',

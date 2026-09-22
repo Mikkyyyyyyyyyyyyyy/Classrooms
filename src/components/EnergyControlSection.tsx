@@ -1,5 +1,6 @@
 import React from 'react';
 import { Classroom, LightZone, AcUnit } from '../types';
+import { EnergyBarChart7Days } from './EnergyBarChart7Days';
 import { 
   Lightbulb, 
   Snowflake, 
@@ -115,6 +116,9 @@ export const EnergyControlSection: React.FC<EnergyControlSectionProps> = ({
           </button>
         </div>
       )}
+
+      {/* 7-Day Energy Consumption Bar Chart (Recharts) */}
+      <EnergyBarChart7Days classroom={classroom} />
 
       {/* Two Column Grid: Lighting Control Left, Air Conditioning Right */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">

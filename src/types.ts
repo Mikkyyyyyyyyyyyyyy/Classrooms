@@ -62,6 +62,19 @@ export interface SmartBin {
   needsEmptying: boolean;
 }
 
+export interface DailyEnergyUsage {
+  date: string; // e.g. '15 ก.ย.'
+  dayName: string; // e.g. 'จันทร์', 'อังคาร'
+  acKwh: number; // kWh from Air Conditioning
+  lightsKwh: number; // kWh from Lighting
+  otherKwh: number; // other IoT equipment
+  totalKwh: number; // total kWh
+  targetKwh: number; // eco benchmark target
+  costBaht: number; // estimated cost in THB (approx 4.5 THB/unit)
+  carbonKg: number; // kgCO2e emissions
+  isToday?: boolean;
+}
+
 export interface Classroom {
   id: string;
   roomNumber: string;
@@ -80,6 +93,7 @@ export interface Classroom {
   schedule: ClassPeriod[];
   bins: SmartBin[];
   sustainabilityScore: number; // 0-100
+  energyHistory7Days?: DailyEnergyUsage[];
 }
 
 export interface CampusOverviewStats {
