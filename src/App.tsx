@@ -28,11 +28,24 @@ import {
 const STORAGE_KEY = 'innovating_classrooms_v1';
 
 export default function App() {
-  // Load initial classrooms from localStorage or mock
+  // Load initial classrooms from localStorage or mock safely
   const [classrooms, setClassrooms] = useState<Classroom[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      return saved ? JSON.parse(saved) : INITIAL_CLASSROOMS;
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (
+          Array.isArray(parsed) &&
+          parsed.length > 0 &&
+          parsed[0]?.airQuality &&
+          Array.isArray(parsed[0]?.lights) &&
+          Array.isArray(parsed[0]?.acs) &&
+          Array.isArray(parsed[0]?.wasteBins)
+        ) {
+          return parsed;
+        }
+      }
+      return INITIAL_CLASSROOMS;
     } catch {
       return INITIAL_CLASSROOMS;
     }
