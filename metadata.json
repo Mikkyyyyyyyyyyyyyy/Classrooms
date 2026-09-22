@@ -1,0 +1,8 @@
+{
+  "name": "Innovating Classrooms for a Sustainable Future",
+  "description": "ระบบแดชบอร์ดอัจฉริยะสำหรับห้องเรียนเพื่ออนาคตที่ยั่งยืน ตรวจวัดคุณภาพอากาศและฝุ่น PM2.5 ตรวจสอบและควบคุมระบบไฟและเครื่องปรับอากาศ ตรวจสอบตารางการใช้ห้องเรียน และระบบติดตามระดับขยะและคัดแยกขยะอัจฉริยะประจำห้องเรียน",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
