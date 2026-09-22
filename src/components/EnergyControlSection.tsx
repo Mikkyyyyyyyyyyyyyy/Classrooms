@@ -14,7 +14,8 @@ import {
   Thermometer,
   ShieldAlert,
   Flame,
-  Gauge
+  Gauge,
+  Calculator
 } from 'lucide-react';
 
 interface EnergyControlSectionProps {
@@ -119,6 +120,30 @@ export const EnergyControlSection: React.FC<EnergyControlSectionProps> = ({
 
       {/* 7-Day Energy Consumption Bar Chart (Recharts) */}
       <EnergyBarChart7Days classroom={classroom} />
+
+      {/* Faculty Budget Forecast Quick Link Banner */}
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/90 rounded-xl p-3 sm:p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        <div className="flex items-center gap-2.5">
+          <div className="p-1.5 rounded-lg bg-blue-600 text-white shrink-0 shadow-2xs">
+            <Calculator className="w-4 h-4" />
+          </div>
+          <div>
+            <span className="font-bold text-slate-900 block">
+              ระบบคาดการณ์ค่าไฟสิ้นเดือน & วางแผนงบประมาณคณะ (Faculty Budget Forecast)
+            </span>
+            <span className="text-slate-500">
+              วิเคราะห์ภาพรวมงบประมาณค่าไฟทั้ง 5 ห้องเรียน พร้อมคำแนะนำการคุมงบไม่ให้เกินเพดาน
+            </span>
+          </div>
+        </div>
+        <a
+          href="#faculty-budget-forecast-section"
+          className="px-3 py-1.5 rounded-lg bg-white border border-blue-200 text-blue-700 font-semibold hover:bg-blue-50 transition-all cursor-pointer inline-flex items-center gap-1.5 shadow-2xs shrink-0 self-start sm:self-auto"
+        >
+          <span>ดูการคาดการณ์ค่าไฟคณะ</span>
+          <span>→</span>
+        </a>
+      </div>
 
       {/* Two Column Grid: Lighting Control Left, Air Conditioning Right */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">

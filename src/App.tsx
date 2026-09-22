@@ -3,6 +3,7 @@ import { Classroom, ClassPeriod, SmartBin } from './types';
 import { INITIAL_CLASSROOMS } from './data/mockClassrooms';
 import { Header } from './components/Header';
 import { BuildingOverviewCards } from './components/BuildingOverviewCards';
+import { FacultyBudgetForecastSection } from './components/FacultyBudgetForecastSection';
 import { ClassroomSelector } from './components/ClassroomSelector';
 import { AirQualitySection } from './components/AirQualitySection';
 import { EnergyControlSection } from './components/EnergyControlSection';
@@ -22,7 +23,8 @@ import {
   Globe,
   HelpCircle,
   X,
-  Tv
+  Tv,
+  Calculator
 } from 'lucide-react';
 
 const STORAGE_KEY = 'innovating_classrooms_v1';
@@ -52,7 +54,7 @@ export default function App() {
   });
 
   const [selectedRoomId, setSelectedRoomId] = useState<string>('room-401');
-  const [activeTab, setActiveTab] = useState<'all' | 'simulator' | 'air' | 'energy' | 'schedule' | 'waste'>('simulator');
+  const [activeTab, setActiveTab] = useState<'all' | 'simulator' | 'air' | 'energy' | 'schedule' | 'waste' | 'budget'>('simulator');
   const [isSimulationActive, setIsSimulationActive] = useState<boolean>(true);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -380,7 +382,16 @@ export default function App() {
           onSelectRoom={(id) => setSelectedRoomId(id)}
         />
 
-        {/* 2. Classroom Selector Navigation */}
+        {/* 2. Faculty Month-End Electricity Cost & Budget Forecast */}
+        <FacultyBudgetForecastSection
+          classrooms={classrooms}
+          onSelectRoom={(id) => {
+            setSelectedRoomId(id);
+            setActiveTab('energy');
+          }}
+        />
+
+        {/* 3. Classroom Selector Navigation */}
         <ClassroomSelector
           classrooms={classrooms}
           selectedRoomId={selectedRoomId}
@@ -483,6 +494,19 @@ export default function App() {
                 <Trash2 className="w-3.5 h-3.5" />
                 <span>ถังขยะอัจฉริยะ (Waste)</span>
               </button>
+
+              <button
+                id="tab-view-budget"
+                onClick={() => setActiveTab('budget')}
+                className={`px-3 py-1.5 rounded-lg font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                  activeTab === 'budget'
+                    ? 'bg-indigo-600 text-white shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                <Calculator className="w-3.5 h-3.5" />
+                <span>งบประมาณค่าไฟคณะ (Budget)</span>
+              </button>
             </div>
           </div>
 
@@ -531,6 +555,18 @@ export default function App() {
                 onEmptyBin={handleEmptyBin}
                 onEmptyAllRoomBins={handleEmptyAllRoomBins}
               />
+            )}
+
+            {activeTab === 'budget' && (
+              <div className="space-y-4">
+                <FacultyBudgetForecastSection
+                  classrooms={classrooms}
+                  onSelectRoom={(id) => {
+                    setSelectedRoomId(id);
+                    setActiveTab('energy');
+                  }}
+                />
+              </div>
             )}
           </div>
         </div>
